@@ -2,7 +2,11 @@ import java.time.Year
 
 fun getIntFromString(variable : String, index : Int) : Int
 {
-	return variable[index].digitToInt()
+	return if (variable[index].isDigit()) {
+		variable[index].digitToInt()
+	} else {
+		99999999
+	}
 }
 
 fun calAddEightNum(
@@ -17,6 +21,10 @@ fun calAddEightNum(
                   ) : Int
 {
 	return number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8
+}
+
+fun birthday(birthday : String = readln()) : String {
+	return if (birthday.length == 10) birthday.padEnd(10,'0').slice(0..9) else birthday
 }
 
 fun shuffleCards(cardDeck : MutableMap<String, String>) : MutableList<String>
@@ -34,7 +42,8 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		val cardName : String = cardDeckNames.find { it.startsWith(cardNumber) } ?: ""
 		val cardMeaning : String = usedCardDeck.getValue(cardName)
 		
-		println("Deine Karte ist $cardName und sie bedeutet $cardMeaning.")
+		println("""Deine Karte ist $cardName und sie bedeutet.
+				$cardMeaning""".trimIndent())
 		return listOf(cardName, cardMeaning)
 	}
 	else if (calculation > 42)
@@ -54,7 +63,8 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		{
 			val cardMeaning : String = usedCardDeck.getValue(cardName)
 			
-			println("Deine Karte ist $cardName und sie bedeutet $cardMeaning.")
+			println("""Deine Karte ist $cardName und sie bedeutet.
+				$cardMeaning""".trimIndent())
 			listOf(cardName, cardMeaning)
 		}
 	}
@@ -72,16 +82,17 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		{
 			val cardMeaning : String = usedCardDeck.getValue(cardName)
 			
-			println("Deine Karte ist $cardName und sie bedeutet $cardMeaning.")
-			return listOf(cardName, cardMeaning)
+			println("""Deine Karte ist $cardName und sie bedeutet.
+				$cardMeaning""".trimIndent())
+			listOf(cardName, cardMeaning)
 		}
 	}
 }
 
-fun personalityCard(cardDeck : MutableMap<String, String>, greeting : String) : List<String>
+fun personalityCard(cardDeck : MutableMap<String, String>, greeting : String, birthDate: String) : List<String>
 {
 	println(greeting)
-	val birthDate : String = readln()
+	// val birthDate : String = birthday()
 	
 	val number1 : Int = getIntFromString(birthDate, 0)
 	val number2 : Int = getIntFromString(birthDate, 1)
@@ -92,6 +103,7 @@ fun personalityCard(cardDeck : MutableMap<String, String>, greeting : String) : 
 	val number7 : Int = getIntFromString(birthDate, 8)
 	val number8 : Int = getIntFromString(birthDate, 9)
 	
+	
 	val calculation : Int = calAddEightNum(number1, number2, number3, number4, number5, number6, number7, number8)
 	
 	return finalCard(calculation, cardDeck)
@@ -101,7 +113,7 @@ fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : 
 {
 	println("Jetzt berechnen wir deine Seelenkarte!")
 	val personalityCardNumber = personalityCard.filter { it.isDigit() }
-	if (personalityCardNumber.length > 2)
+	if (personalityCardNumber.length >= 2)
 	{
 		val number1 : Int = getIntFromString(personalityCard, 0)
 		val number2 : Int = getIntFromString(personalityCard, 1)
@@ -133,10 +145,9 @@ fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : 
 	
 }
 
-fun yearCard(cardDeck : MutableMap<String, String>, greeting : String) : List<String>
+fun yearCard(cardDeck : MutableMap<String, String>, greeting : String, birthDate : String) : List<String>
 {
 	println(greeting)
-	val birthDate : String = readln()
 	
 	val number1 : Int = getIntFromString(birthDate, 0)
 	val number2 : Int = getIntFromString(birthDate, 1)
@@ -317,16 +328,25 @@ fun main()
 	
 	shuffleCards(bothArcana)
 	
-	val greetingPersonalityCard = """Um deine Persönlichkeitskarte zu ermitteln, benötigen wir dein Geburtsdatum.
-		Tippe es wie folgt ein und bestätige es anschließend mit der Eingabetaste: TT.MM.JJJJ.""".trimIndent()
+	println("""Um deine Tarotkarten zu berechnen benötigen wir dein Geburtsdatum.
+	Tippe es wie folgt ein und bestätige es anschließend mit der Eingabetaste: TT.MM.JJJJ.""".trimIndent())
 	
-	val greetingYearCard = """Um deine Jahreskarte zu ermitteln, benötigen wir dein Geburtsdatum.
-		Tippe es wie folgt ein und bestätige es anschließend mit der Eingabetaste: TT.MM.JJJJ.""".trimIndent()
+	val birthDate : String = birthday()
 	
-	val personalityCard = personalityCard(bigArcana, greetingPersonalityCard)
+	val greetingPersonalityCard = """
+		Jetzt ermitteln wir deine Persönlichkeitskarte.""".trimIndent()
+	
+	val greetingYearCard = """
+		Jetzt ermitteln wir deine Jahreskarte für ${Year.now()}.""".trimIndent()
+	
+	val personalityCard = personalityCard(bigArcana, greetingPersonalityCard, birthDate)
 
+	Thread.sleep(1500)
+	
 	soulCard(bigArcana, personalityCard[0])
 	
-	yearCard(bigArcana, greetingYearCard)
+	Thread.sleep(1500)
+	
+	yearCard(bigArcana, greetingYearCard, birthDate)
 	
 }
