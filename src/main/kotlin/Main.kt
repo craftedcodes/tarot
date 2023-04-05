@@ -1,9 +1,12 @@
 import java.time.Year
 
 fun birthday(birthday : String = readln()) : String {
+	// TODO: Wenn for loops gemacht, in if else abchecken, ob Eingabe richtig ist und dann
 	return birthday
 }
 
+// Hier wird die Zahl aus dem String extrahiert
+// TODO: Try-Catch umbauen
 fun getIntFromString(variable : String, index : Int) : Int
 {
 	return try {
@@ -12,11 +15,12 @@ fun getIntFromString(variable : String, index : Int) : Int
 		println("""Deine Eingabe entspricht scheinbar nicht dem Format TT.MM.JJJJ.
 			Bitte gib nochmal dein Geburtsdatum ein.
 		""".trimIndent())
-		birthday()
 		return 0
 	}
 }
 
+// Quersummenberechnung
+//? Check, ob es eine Listenfunktion, die die Summe aller Int Inhalte
 fun calAddEightNum(
 		number1 : Int,
 		number2 : Int,
@@ -46,7 +50,7 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		val cardName : String = cardDeckNames.find { it.startsWith(cardNumber) } ?: ""
 		val cardMeaning : String = usedCardDeck.getValue(cardName)
 		
-		println("""Deine Karte ist $cardName und sie bedeutet.
+		println("""Deine Karte ist $cardName und sie bedeutet:
 				$cardMeaning""".trimIndent())
 		return listOf(cardName, cardMeaning)
 	}
@@ -67,7 +71,7 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		{
 			val cardMeaning : String = usedCardDeck.getValue(cardName)
 			
-			println("""Deine Karte ist $cardName und sie bedeutet.
+			println("""Deine Karte ist $cardName und sie bedeutet:
 				$cardMeaning""".trimIndent())
 			listOf(cardName, cardMeaning)
 		}
@@ -86,7 +90,7 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 		{
 			val cardMeaning : String = usedCardDeck.getValue(cardName)
 			
-			println("""Deine Karte ist $cardName und sie bedeutet.
+			println("""Deine Karte ist $cardName und sie bedeutet:
 				$cardMeaning""".trimIndent())
 			listOf(cardName, cardMeaning)
 		}
@@ -134,7 +138,7 @@ fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : 
 		{
 			val cardMeaning : String = cardDeck.getValue(cardName)
 			
-			println("Deine Karte ist $cardName und sie bedeutet $cardMeaning.")
+			println("Deine Karte ist $cardName und sie bedeutet $cardMeaning")
 			return listOf(cardName, cardMeaning)
 		}
 	}
@@ -143,7 +147,7 @@ fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : 
 		val cardMeaning : String = cardDeck.getValue(personalityCard)
 		
 		
-		println("Deine Karte ist $personalityCard und sie bedeutet $cardMeaning.")
+		println("Deine Karte ist $personalityCard und sie bedeutet $cardMeaning")
 		return listOf(personalityCard, cardMeaning)
 	}
 	
