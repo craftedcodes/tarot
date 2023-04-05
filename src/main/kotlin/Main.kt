@@ -1,11 +1,19 @@
 import java.time.Year
 
+fun birthday(birthday : String = readln()) : String {
+	return birthday
+}
+
 fun getIntFromString(variable : String, index : Int) : Int
 {
-	return if (variable[index].isDigit()) {
+	return try {
 		variable[index].digitToInt()
-	} else {
-		99999999
+	} catch (ex: Exception) {
+		println("""Deine Eingabe entspricht scheinbar nicht dem Format TT.MM.JJJJ.
+			Bitte gib nochmal dein Geburtsdatum ein.
+		""".trimIndent())
+		birthday()
+		return 0
 	}
 }
 
@@ -21,15 +29,6 @@ fun calAddEightNum(
                   ) : Int
 {
 	return number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8
-}
-
-fun birthday(birthday : String = readln()) : String {
-	return try
-	{
-		birthday
-	} catch (ex: Exception) {
-		"wrong entry"
-	}
 }
 
 fun shuffleCards(cardDeck : MutableMap<String, String>) : MutableList<String>
