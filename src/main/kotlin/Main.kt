@@ -1,7 +1,8 @@
 import java.time.Year
 
+// Geburtstagseingabe
 fun birthday(birthday : String = readln()) : String {
-	// TODO: Wenn for loops gemacht, in if else abchecken, ob Eingabe richtig ist und dann
+	// TODO: Wenn for loops gemacht, in if else und iterieren abchecken, ob Eingabe richtig ist und dann Exception abfangen.
 	return birthday
 }
 
@@ -35,11 +36,13 @@ fun calAddEightNum(
 	return number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8
 }
 
+// Karten mischen Funktion
 fun shuffleCards(cardDeck : MutableMap<String, String>) : MutableList<String>
 {
 	return cardDeck.keys.shuffled().toMutableList()
 }
 
+// Berechnung der finalen Karte
 fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<String>
 {
 	val usedCardDeck : Map<String, String> = cardDeck.toMap()
@@ -97,6 +100,7 @@ fun finalCard(calculation : Int, cardDeck : MutableMap<String, String>) : List<S
 	}
 }
 
+// Persönlichkeitskarte
 fun personalityCard(cardDeck : MutableMap<String, String>, greeting : String, birthDate: String) : List<String>
 {
 	println(greeting)
@@ -117,6 +121,7 @@ fun personalityCard(cardDeck : MutableMap<String, String>, greeting : String, bi
 	return finalCard(calculation, cardDeck)
 }
 
+// Seelenkarte
 fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : List<String>
 {
 	println("Jetzt berechnen wir deine Seelenkarte!")
@@ -153,6 +158,7 @@ fun soulCard(cardDeck : MutableMap<String, String>, personalityCard : String) : 
 	
 }
 
+// Jahreskarte
 fun yearCard(cardDeck : MutableMap<String, String>, greeting : String, birthDate : String) : List<String>
 {
 	println(greeting)
@@ -175,6 +181,7 @@ fun yearCard(cardDeck : MutableMap<String, String>, greeting : String, birthDate
 
 fun main()
 {
+	// Krüge
 	val gobletCards : MutableMap<String, String> = mutableMapOf(
 			"Bube der Kelche" to "oberflächliche Begeisterung, leichte Schwärmerei, unverfänglich",
 			"Ritter der Kelche" to "romantisch, starke Gefühle, Intensität, Hingabe",
@@ -192,6 +199,7 @@ fun main()
 			"10 Kelche" to "Glück, Gemeinschaft, gutes Omen",
 	                                                           )
 	
+	// Stäbe
 	val barCards : MutableMap<String, String> = mutableMapOf(
 			"Bube der Stäbe" to "Aufbruch, neue Chancen, Unbekanntes entdecken, Freude auf Neues, Kreativität und Offenheit, auch für eine neue Liebe",
 			"Ritter der Stäbe" to "Temperament, Elan, beflügelt von Reibung, Genuss, den Moment leben",
@@ -209,6 +217,7 @@ fun main()
 			"10 Stäbe" to "große Bürde, zu schwere Last, Hilfe/Entlastung nötig",
 	                                                        )
 	
+	// Schwerter
 	val swordCards : MutableMap<String, String> = mutableMapOf(
 			"Bube der Schwerter" to "herausfordernd, provozierend, Kritik oder Konfrontation im Anmarsch, Ärger, aber eher substanzlos",
 			"Ritter der Schwerter" to "ausdauernder Angreifer, Warnung vor Streit oder Kampf, Feindseligkeit und Unfrieden",
@@ -226,6 +235,7 @@ fun main()
 			"10 Schwerter" to "Schock, plötzliches Ende, Schließen eines Kapitels (auch unfreiwillig)",
 	                                                          )
 	
+	// Münzen/Scheiben
 	val coinCards : MutableMap<String, String> = mutableMapOf(
 			"Bube der Münzen" to "freigiebig und unbekümmert in Bezug auf Geld, schwelgt gern in Schönem, ohne die Arbeit dahinter zu sehen",
 			"Ritter der Münzen" to "zielstrebig, überlegt, ehrgeizig und konsequent, darf aber auch Lebensfreude und Leichtigkeit nicht vergessen",
@@ -243,8 +253,10 @@ fun main()
 			"10 Münzen" to "Lohn für Mühen, Fülle, aber auch Geheimnisse und Mysterien jenseits der materiellen Welt",
 	                                                         )
 	
+	// kleines Arkana
 	val littleArcana : MutableMap<String, String> = (gobletCards + barCards + swordCards + coinCards).toMutableMap()
 	
+	// großes Arkana
 	val bigArcana : MutableMap<String, String> = mutableMapOf(
 			"0 - Der Narr" to """Abgebildet ist meist ein junger Mann, der sorglos und beschwingt seines Weges geht.
 				Diese Karte steht für Sorglosigkeit und einen unbekümmerten Menschen.
@@ -332,6 +344,7 @@ fun main()
 				Daher kann diese Karte auch ein Hinweis sein, mit etwas Distanz auf Probleme zu schauen, um das Wesentliche zu erkennen.""".trimMargin(),
 	                                                         )
 	
+	// komplettes Tarot
 	val bothArcana : MutableMap<String, String> = (littleArcana + bigArcana).toMutableMap()
 	
 	shuffleCards(bothArcana)
