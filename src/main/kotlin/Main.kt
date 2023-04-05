@@ -24,7 +24,12 @@ fun calAddEightNum(
 }
 
 fun birthday(birthday : String = readln()) : String {
-	return if (birthday.length == 10) birthday.padEnd(10,'0').slice(0..9) else birthday
+	return try
+	{
+		birthday
+	} catch (ex: Exception) {
+		"wrong entry"
+	}
 }
 
 fun shuffleCards(cardDeck : MutableMap<String, String>) : MutableList<String>
