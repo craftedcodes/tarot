@@ -1,5 +1,7 @@
+// This package holds the global functions.
 package globalFunctions
 
+// This function gets the integer of a digit character.
 fun String.getInt(index : Int): Int {
 	return try {
 		this[index].digitToInt()
