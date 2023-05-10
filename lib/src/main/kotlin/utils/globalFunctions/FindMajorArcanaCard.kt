@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // Importing the MajorArcana class from the arcanas package.
 import arcanas.MajorArcana

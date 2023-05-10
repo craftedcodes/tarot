@@ -3,9 +3,9 @@ import cards.MajorArcanaCard
 import fortunes.PersonalityCard
 import fortunes.SoulCard
 import fortunes.YearCard
-import globalFunctions.getBirthDate
-import globalFunctions.getCrossSum
-import globalFunctions.getInt
+import utils.globalFunctions.getBirthDate
+import utils.globalFunctions.getCrossSum
+import utils.globalFunctions.getInt
 
 // Main function
 fun main() {

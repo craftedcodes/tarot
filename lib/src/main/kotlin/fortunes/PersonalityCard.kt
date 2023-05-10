@@ -5,9 +5,9 @@ package fortunes
 import cards.MajorArcanaCard
 
 // Importing necessary global functions
-import globalFunctions.finalMajorArcanaCard
-import globalFunctions.getCrossSum
-import globalFunctions.getInt
+import utils.globalFunctions.finalMajorArcanaCard
+import utils.globalFunctions.getCrossSum
+import utils.globalFunctions.getInt
 
 // Declaring the PersonalityCard class. It's open, which means it can be inherited from.
 open class PersonalityCard ()

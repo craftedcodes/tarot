@@ -1,6 +1,7 @@
 package cards
 
 import texts.*
+import utils.texts.*
 
 open class GobletCards
 {

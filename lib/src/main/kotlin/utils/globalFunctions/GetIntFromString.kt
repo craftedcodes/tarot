@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // This function gets the integer of a digit character.
 fun String.getInt(index : Int): Int {

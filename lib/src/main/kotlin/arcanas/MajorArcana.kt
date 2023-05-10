@@ -2,6 +2,7 @@ package arcanas
 
 import cards.MajorArcanaCard
 import texts.*
+import utils.texts.*
 
 class MajorArcana
 {

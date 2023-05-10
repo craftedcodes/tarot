@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // This function gets a birthdate from the user.
 fun getBirthDate() : String {

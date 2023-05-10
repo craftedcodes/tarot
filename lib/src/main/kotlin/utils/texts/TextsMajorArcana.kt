@@ -1,4 +1,4 @@
-package texts
+package utils.texts
 
 // Names
 val nameFool : String = "The Fool"

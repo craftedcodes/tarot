@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // This function converts each digit of a string into an integer and adds it to a list.
 fun getIntFromStringForLoop(entry : String) : List<Int> {

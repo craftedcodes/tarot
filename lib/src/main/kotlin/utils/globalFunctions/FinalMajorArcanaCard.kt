@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // This function finds the final Major Arcana Card based on a given cross sum.
 fun finalMajorArcanaCard(crossSum : Int) =

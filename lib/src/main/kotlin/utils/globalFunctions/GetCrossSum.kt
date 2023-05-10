@@ -1,5 +1,5 @@
 // This package holds the global functions.
-package globalFunctions
+package utils.globalFunctions
 
 // This function gets the cross sum of the birthdate from the user.
 fun getCrossSum(

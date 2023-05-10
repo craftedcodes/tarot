@@ -5,8 +5,8 @@ package fortunes
 import cards.MajorArcanaCard
 
 // Importing necessary global functions.
-import globalFunctions.findMajorArcanaCardByNumber
-import globalFunctions.getInt
+import utils.globalFunctions.findMajorArcanaCardByNumber
+import utils.globalFunctions.getInt
 
 // Declaring the SoulCard class.
 class SoulCard()

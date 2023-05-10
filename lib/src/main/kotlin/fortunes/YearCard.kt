@@ -5,9 +5,9 @@ package fortunes
 import cards.MajorArcanaCard
 
 // Importing necessary global functions.
-import globalFunctions.finalMajorArcanaCard
-import globalFunctions.getCrossSum
-import globalFunctions.getInt
+import utils.globalFunctions.finalMajorArcanaCard
+import utils.globalFunctions.getCrossSum
+import utils.globalFunctions.getInt
 
 // Importing the Year class from java.time package.
 import java.time.Year
